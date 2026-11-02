@@ -1,0 +1,92 @@
+{
+  "name": "dsh-provider-params",
+  "version": "0.1.0-alpha.1",
+  "description": "Vendor parameter mapping and deterministic JSON repair for DeepSeek Harness: params.map/params.compare/params.vendors map temperature, top_p, max_tokens, stop, system and related fields across 11 LLM vendors, and json.repair fixes broken JSON tool output without fabricating data.",
+  "type": "module",
+  "main": "./lib/plugin/index.js",
+  "types": "./lib/plugin/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/plugin/index.d.ts",
+      "default": "./lib/plugin/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "README-zh.md",
+    "TROUBLESHOOTING.md",
+    "samples",
+    "docs/assets"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "demo": {
+      "sample": "samples/quickstart/input/params-request.json",
+      "prompt": "用自带样例把我这段 OpenAI 的 temperature/top_p/max_tokens/stop 转成 Anthropic 参数，再把我那段带换行的坏 JSON 修好",
+      "expect": "samples/quickstart/expected/params-mapped.json",
+      "screenshot": "docs/assets/quickstart.png",
+      "reads": [
+        "samples/quickstart/input/params-request.json",
+        "samples/quickstart/input/broken-tool-output.json"
+      ],
+      "writes": [],
+      "network": false,
+      "external": []
+    }
+  },
+  "engines": {
+    "dsh": ">=0.2.1-rc.3 <0.4.0",
+    "node": ">=24.9.0 <25"
+  },
+  "packageManager": "pnpm@11.28.5",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "node scripts/lint.mjs",
+    "test": "node --test test/*.test.mjs",
+    "acceptance": "node scripts/acceptance.mjs",
+    "gate": "node scripts/gate.mjs",
+    "prepublishOnly": "npm run build && node scripts/lint.mjs"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "provider",
+    "parameter-mapping",
+    "json-repair",
+    "llm-api",
+    "perrylink"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PerryLink/dsh-provider-params.git"
+  },
+  "homepage": "https://perrylink.github.io/dsh-plugins/packages/dsh-provider-params.html",
+  "bugs": {
+    "url": "https://github.com/PerryLink/dsh-provider-params/issues"
+  },
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.5 <5.0.0",
+    "@deepseek-ai/dsh-tools": ">=0.2.1-rc.3 <0.4.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "4.0.5",
+    "@deepseek-ai/dsh-tools": "0.2.1-rc.3",
+    "@types/node": "^24.0.0",
+    "typescript": "7.0.2"
+  }
+}

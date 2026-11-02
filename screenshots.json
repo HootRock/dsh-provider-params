@@ -1,0 +1,12 @@
+[
+  {
+    "path": "docs/assets/quickstart.png",
+    "kind": "quickstart",
+    "alt": "dsh-provider-params real test run",
+    "command": "node --test test/params.test.mjs test/repair.test.mjs",
+    "run_at": "2026-11-02T20:35:07+08:00",
+    "output_sha256": "7fb7b7c4a88428f38d8de180fcbc09b6bf5793deae9e6d6067abd28949046433",
+    "log_sha256": "bd5d46865c13c67ad3abe030829b4c05e061e77f02138a780a48a6edb5e22b72",
+    "caption": "Real command: node --test test/params.test.mjs test/repair.test.mjs — 24 tests passed, 0 failed (11-vendor mapping across 121 pairs, unknown/conflicting/out-of-range cases, the four JSON repair strategies, and idempotency). Run 2026-11-02; the image is rendered from the captured terminal output."
+  }
+]

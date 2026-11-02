@@ -1,0 +1,7 @@
+req_id,metric,threshold,actual,script,evidence_sha256,pass,source,counted
+PP-A01,vendors listed,11,11,scripts/acceptance.mjs,0f08564c0573c9f3f7b64b7b0aa9d4b9553f78cd6a7291393915704ca1282001,true,public/synthetic,false
+PP-A02,canonical field count,13,13,scripts/acceptance.mjs,0f08564c0573c9f3f7b64b7b0aa9d4b9553f78cd6a7291393915704ca1282001,true,public/synthetic,false
+PP-A03,vendor-pair mappings clean,121,121,scripts/acceptance.mjs,0f08564c0573c9f3f7b64b7b0aa9d4b9553f78cd6a7291393915704ca1282001,true,public/synthetic,false
+PP-A04,deterministic repair strategies,4,4,scripts/acceptance.mjs,0f08564c0573c9f3f7b64b7b0aa9d4b9553f78cd6a7291393915704ca1282001,true,public/synthetic,false
+PP-A05,quickstart goldens match,2,2,scripts/acceptance.mjs,0f08564c0573c9f3f7b64b7b0aa9d4b9553f78cd6a7291393915704ca1282001,true,public/synthetic,false
+PP-A06,null placeholders reported,1,1,scripts/acceptance.mjs,0f08564c0573c9f3f7b64b7b0aa9d4b9553f78cd6a7291393915704ca1282001,true,public/synthetic,false

@@ -1,0 +1,30 @@
+{
+  "from": "openai",
+  "to": "anthropic",
+  "mapped": {
+    "temperature": 1,
+    "top_p": 0.9,
+    "max_tokens": 512,
+    "stop_sequences": [
+      "\n\nHuman:"
+    ]
+  },
+  "dropped": [
+    {
+      "param": "frequency_penalty",
+      "from_wire": "frequency_penalty",
+      "reason": "not supported by anthropic (no equivalent)"
+    }
+  ],
+  "added": [],
+  "adjusted": [
+    {
+      "param": "temperature",
+      "wire_name": "temperature",
+      "from": 1.35,
+      "to": 1,
+      "rule": "clamp 0..1"
+    }
+  ],
+  "unknown": []
+}

@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "repaired": "{\n  \"tool\": \"invoice.extract\",\n  \"ok\": true,\n  \"items\": [\n    {\n      \"sku\": \"A-1\",\n      \"qty\": 2,\n      \"note\": \"line1\\nline2\"\n    },\n    {\n      \"sku\": \"A-2\",\n      \"qty\": 3\n    }\n  ]\n}",
+  "value": {
+    "tool": "invoice.extract",
+    "ok": true,
+    "items": [
+      {
+        "sku": "A-1",
+        "qty": 2,
+        "note": "line1\nline2"
+      },
+      {
+        "sku": "A-2",
+        "qty": 3
+      }
+    ]
+  },
+  "actions": [
+    {
+      "op": "escape",
+      "path": "text@79",
+      "before": "\n",
+      "after": "\\n"
+    },
+    {
+      "op": "strip",
+      "path": "text@109",
+      "before": ",",
+      "after": ""
+    }
+  ],
+  "strategies": [
+    "escapeRepair",
+    "trailingComma"
+  ],
+  "truncated": false,
+  "validated": false,
+  "placeholders": [],
+  "error": null
+}

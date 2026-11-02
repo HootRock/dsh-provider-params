@@ -1,0 +1,11 @@
+{
+  "from": "openai",
+  "to": "anthropic",
+  "params": {
+    "temperature": 1.35,
+    "top_p": 0.9,
+    "max_tokens": 512,
+    "stop": ["\n\nHuman:"],
+    "frequency_penalty": 0.2
+  }
+}
