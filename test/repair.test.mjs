@@ -157,3 +157,29 @@ test('already valid JSON is returned unchanged with no actions', () => {
   assert.deepEqual(result.strategies, [])
   assert.equal(result.validated, false)
 })
+
+
+test('valid JSON containing a fenced snippet keeps the outer container and all fields', () => {
+  for (const value of [
+    { note: '```{} ```', amount: 10 },
+    [{ note: '```[]```', amount: 10 }],
+    { note: '```json\n{"example":true}\n```', amount: 10 },
+  ]) {
+    const text = JSON.stringify(value)
+    const result = repairJson(text)
+    assert.equal(result.ok, true)
+    assert.deepEqual(result.value, value)
+    assert.equal(result.repaired, text)
+    assert.deepEqual(result.actions, [])
+    assert.deepEqual(result.strategies, [])
+  }
+})
+
+
+test('repairing a JSON container does not extract a fence inside one of its strings', () => {
+  const result = repairJson('{"note":"```{} ```","amount":10,}')
+  assert.equal(result.ok, true)
+  assert.deepEqual(result.value, { note: '```{} ```', amount: 10 })
+  assert.deepEqual(result.strategies, ['trailingComma'])
+  assert.ok(result.actions.every((action) => action.op !== 'extract'))
+})

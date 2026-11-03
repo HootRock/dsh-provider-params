@@ -117,11 +117,14 @@ function pointer(base: string, key: string): string {
 /**
  * Extract the payload from a markdown fence, mirroring the family helper:
  * a ```` ```json ```` (or bare ```` ``` ````) block wins, otherwise the
- * trimmed text is returned unchanged.
+ * trimmed text is returned unchanged. A JSON container takes precedence over
+ * fences inside its string values, even when that container needs repair.
  */
 export function extractJsonFromText(text: string): string {
-  const match = /```(?:json)?\s*\n?([\s\S]*?)\n?```/u.exec(String(text))
-  return match !== null && match[1] !== undefined ? match[1].trim() : String(text).trim()
+  const trimmed = String(text).trim()
+  if (looksLikeJsonText(trimmed)) return trimmed
+  const match = /```(?:json)?\s*\n?([\s\S]*?)\n?```/u.exec(trimmed)
+  return match !== null && match[1] !== undefined ? match[1].trim() : trimmed
 }
 
 /** Whether repair should attempt this text: only `{`/`[` roots. */
