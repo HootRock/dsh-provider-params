@@ -71,7 +71,7 @@ External systems: none
 
 ## Version
 
-- Version: `0.1.0-alpha.1` (matches `package.json`).
+- Version: `0.1.0` (matches `package.json`).
 - Tests: `node --test test/*.test.mjs` — 33 passed, 0 failed (2026-11-02).
 - Status: alpha / public synthetic / not counted / not GA; no customer data or evidence.
 

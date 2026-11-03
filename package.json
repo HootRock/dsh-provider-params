@@ -1,6 +1,6 @@
 {
   "name": "dsh-provider-params",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0",
   "description": "Vendor parameter mapping and deterministic JSON repair for DeepSeek Harness: params.map/params.compare/params.vendors map temperature, top_p, max_tokens, stop, system and related fields across 11 LLM vendors, and json.repair fixes broken JSON tool output without fabricating data.",
   "type": "module",
   "main": "./lib/plugin/index.js",

@@ -89,7 +89,7 @@ node samples/quickstart/run.mjs
 
 ## 版本
 
-- 版本：`0.1.0-alpha.1`（与 `package.json` 一致）。
+- 版本：`0.1.0`（与 `package.json` 一致）。
 - 测试：`node --test test/*.test.mjs`，33 个测试通过，0 失败（2026-11-02）。
 - 状态：alpha / 公开合成 / not counted / 非 GA；不含客户数据或客户证据。
 

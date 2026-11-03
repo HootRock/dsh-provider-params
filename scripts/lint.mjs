@@ -12,7 +12,7 @@ const failures = []
 const pkg = JSON.parse(readFileSync(path.join(root, 'package.json'), 'utf8'))
 
 if (pkg.name !== 'dsh-provider-params') failures.push('name must be dsh-provider-params')
-if (pkg.version !== '0.1.0-alpha.1') failures.push(`version must be 0.1.0-alpha.1, found ${pkg.version}`)
+if (pkg.version !== '0.1.0') failures.push(`version must be 0.1.0, found ${pkg.version}`)
 if (pkg.license !== 'Apache-2.0') failures.push('license must be Apache-2.0')
 if (pkg.type !== 'module') failures.push('type must be module')
 if (pkg.main !== './lib/plugin/index.js') failures.push('main must point at lib/plugin/index.js')
