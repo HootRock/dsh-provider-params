@@ -48,8 +48,13 @@ jobs:
           else
             npm publish --provenance --access public --tag next
           fi
-          npm dist-tag add "$pkg@$ver" alpha
-          npm dist-tag add "$pkg@$ver" latest
+          IS_STABLE="$(node -p "!/[a-z]/i.test(require('./package.json').version.split('-')[1] || '')")"
+          if [ "$IS_STABLE" = "true" ]; then
+            npm dist-tag add "$pkg@$ver" latest
+          else
+            npm dist-tag add "$pkg@$ver" alpha
+            npm dist-tag add "$pkg@$ver" next
+          fi
       - name: Prepare release assets
         shell: bash
         run: |
@@ -61,5 +66,5 @@ jobs:
       - uses: softprops/action-gh-release@v3
         with:
           generate_release_notes: true
-          prerelease: true
+          prerelease: ${{ contains(github.ref_name, '-') }}
           files: dist/*
